@@ -1,0 +1,114 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+
+        <link type="text/css" rel="stylesheet" href="{{=URL('static','css/login/fuse-icon-font/style.css')}}">
+
+        <link type="text/css" rel="stylesheet" href="{{=URL('static','fuse-html/fuse-html.min.css')}}">
+
+        <link type="text/css" rel="stylesheet" href="{{=URL('static','css/login/main.css')}}">
+
+        <link type="text/css" rel="stylesheet" href="{{=URL('static','css/login/mystyle.css')}}">
+
+        <script type="text/javascript" src="{{=URL('static','jquery/dist/jquery.min.js')}}"></script>
+
+        <script type="text/javascript" src="{{=URL('static','fuse-html/fuse-html.min.js')}}"></script>
+
+{{end}}
+
+{{block content}}
+    <div id="wrapper">
+
+    <div class="content-wrapper">
+
+            <div id="login" class="p-8">
+
+    <div class="form-wrapper md-elevation-8 p-8">
+
+        <div class="title mt-4 mb-8 title_login">Sing In</div>
+
+        <form id="form_login" name="loginForm" enctype = "multipart/form-data" action = "{{= URL('default','do_login')}}" method = "post">
+
+            <div class="form-group mb-4">
+                <input type="text" name="username" class="form-control" id="loginFormInputEmail" aria-describedby="emailHelp" value="{{=email}}"
+                       placeholder=" "/>
+                <label for="loginFormInputEmail">Username</label>
+                <div class="emailErr"><small>*Please Input the Username</small></div>
+            </div>
+
+            <div class="form-group mb-4">
+                <input type="password" name="password" class="form-control" id="loginFormInputPassword" value="{{=password}}" placeholder="Password"/>
+                <label for="loginFormInputPassword">Password</label>
+                <div class="passwordErr"><small>*Please Input the Password</small></div>
+            </div>
+
+            <div class="remember-forgot-password row no-gutters align-items-center justify-content-between pt-4">
+
+                <div class="form-check remember-me mb-4">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" aria-label="Remember Me"/>
+                        <span class="checkbox-icon"></span>
+                        <span class="form-check-description">Remember Me</span>
+                    </label>
+                </div>
+
+                <a href="#" class="forgot-password text-secondary mb-4">Forgot Password?</a>
+            </div>
+
+            <button type="button" id="btn_login" class="submit-button btn btn-block btn-secondary my-4 mx-auto" aria-label="LOG IN">
+                LOG IN
+            </button>
+
+        </form>
+
+        <div class="separator">
+            <span class="text">OR</span>
+        </div>
+
+        <button type="submit" class="google btn btn-block btn-secondary my-2 mx-auto" aria-label="LOG IN">
+                <span>
+                    <i class="icon-google-plus s-4"></i>
+                    <span>Log in with Google</span>
+                </span>
+        </button>
+
+        <button type="submit" class="facebook btn btn-block btn-secondary my-2 mx-auto" aria-label="LOG IN">
+                <span>
+                    <i class="icon-facebook s-4"></i>
+                    <span>Log in with Facebook</span>
+                </span>
+        </button>
+
+        <div class="register d-flex flex-column flex-sm-row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <span class="text mr-sm-2">Don't have an account?</span>
+            <a class="link text-secondary" href="{{=URL('default','register')}}">Create an account</a>
+        </div>
+
+    </div>
+</div>
+        </div>
+
+    </div>
+{{end}}
+
+{{block script}}
+<script>
+
+    $("#btn_login").on('click',function () {
+        var email = $("#loginFormInputEmail").val();
+        var password = $("#loginFormInputPassword").val();
+
+        if(email.length == 0){
+            $(".emailErr").css({'display':'inline'});
+            return;
+        }
+        if(password.length == 0){
+            $(".passwordErr").css({'display':'inline'});
+            return;
+        }
+
+        $("#form_login").submit();
+    });
+
+</script>
+{{end}}

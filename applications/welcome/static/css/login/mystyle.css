@@ -1,0 +1,42 @@
+.title_login{
+    font-size: 30px !important;
+    font-weight: 600;
+}
+.page-logo a{
+    text-decoration: none;
+}
+.page-logo a h1{
+    font-weight: 600;
+    font-size: 25px;
+    color: white;
+}
+.usernameErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+.firstnameErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+.lastnameErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+.emailErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+.passwordErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+.repassErr{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
